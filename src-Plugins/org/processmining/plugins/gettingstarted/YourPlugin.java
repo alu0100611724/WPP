@@ -1,11 +1,5 @@
 package org.processmining.plugins.gettingstarted;
 
-import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
-import org.processmining.contexts.uitopia.UIPluginContext;
-import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.framework.plugin.PluginContext;
-import org.processmining.framework.plugin.annotations.Plugin;
-import org.processmining.framework.plugin.annotations.PluginVariant;
 
 /**
  * Plug-in NAME
@@ -13,7 +7,7 @@ import org.processmining.framework.plugin.annotations.PluginVariant;
  * Function
  * @author Mauro
  * 
- */
+ *
 @Plugin(name = "Your plug-in name", parameterLabels = { "Name of your first input", 
         "Name of your second input", "Name of your configuration" },
         returnLabels = { "Name of your output" }, returnTypes = { YourOutput.class })
@@ -30,7 +24,7 @@ public class YourPlugin {
    * @param input2 The second input.
    * @param configuration The configuration to use.
    * @return The output.
-   */
+   *
   private YourOutput yourPrivatePlugin(PluginContext context, YourFirstInput input1, 
                             YourSecondInput input2, YourConfiguration configuration) {
     return configuration.isYourBoolean() ? new YourOutput(input1) : new YourOutput(input2);
@@ -44,7 +38,7 @@ public class YourPlugin {
    * @param input2 The second input.
    * @param configuration The configuration to use.
    * @return The output.
-   */
+   *
   @UITopiaVariant(affiliation = "Your affiliation", author = "Your name", email = "Your e-mail address")
   @PluginVariant(variantLabel = "Your plug-in name, parameters", requiredParameterLabels = { 0, 1, 2 })
   public YourOutput yourConfiguredPlugin(PluginContext context, YourFirstInput input1,
@@ -60,7 +54,7 @@ public class YourPlugin {
    * @param input1 The first input.
    * @param input2 The second input.
    * @return The output.
-   */
+   *
   @UITopiaVariant(affiliation = "Your affiliation", author = "Your name", email = "Your e-mail address")
   @PluginVariant(variantLabel = "Your plug-in name, parameters", requiredParameterLabels = { 0, 1 })
   public YourOutput yourDefaultPlugin(PluginContext context, YourFirstInput input1, YourSecondInput input2) {
@@ -77,7 +71,7 @@ public class YourPlugin {
    * @param input1 The first input.
    * @param input2 The second input.
    * @return The output.
-   */
+   *
   @UITopiaVariant(affiliation = "Your affiliation", author = "Your name", email = "Your e-mail address")
   @PluginVariant(variantLabel = "Your plug-in name, dialog", requiredParameterLabels = { 0, 1 })
   public YourOutput yourDefaultPlugin(UIPluginContext context, YourFirstInput input1, YourSecondInput input2) {
@@ -96,3 +90,4 @@ public class YourPlugin {
     return null;
   }       
 }
+*/
