@@ -4,11 +4,13 @@
 package org.processmining.plugins.helloworld;
 
 import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
-import org.processmining.framework.plugin.annotations.*;
-import org.processmining.framework.plugin.*;
-import org.processmining.contexts.uitopia.*;
-import org.processmining.contexts.uitopia.annotations.*;
-import org.processmining.framework.util.ui.widgets.*;
+import org.processmining.contexts.uitopia.UIPluginContext;
+import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
+import org.processmining.framework.plugin.PluginContext;
+import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.framework.plugin.annotations.PluginVariant;
+import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
+import org.processmining.framework.util.ui.widgets.ProMTextField;
 
 //Esta anotacion indica que esta clase es un plugin
 @Plugin(name = "Procreate",
