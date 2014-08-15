@@ -52,6 +52,6 @@
 	<classpathentry kind="lib" path="lib/jgraph.jar"/>
 	<classpathentry kind="lib" path="lib/commons-math-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/jfreechart-1.0.14.jar"/>
-	<classpathentry kind="lib" path="D:/Docs/ULL/4to año/TFG/Material/Widgets.jar"/>
+	<classpathentry kind="lib" path="D:/Docs/WorkspaceTFG/ProM/resources/Widgets.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

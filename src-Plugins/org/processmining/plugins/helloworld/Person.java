@@ -3,11 +3,19 @@
  */
 package org.processmining.plugins.helloworld;
 
+import org.processmining.framework.annotations.AuthoredType;
+import org.processmining.framework.annotations.Icon;
+
 /**
  * @author Mauro
- * Example of a simple object model
+ * Example of a simple object model that is only meant to be used in ProM 
  * Person is compose of a class Name 
  */
+@AuthoredType(typeName = "Person object",
+    affiliation = "University of Life",
+    author = "Britney J. Spears",
+    email = "britney@westergaard.eu")
+@Icon(icon = "resources/resourcetype_person_30x35.png")
 public class Person {
 	  private Name name;
 	  private int age;
