@@ -6,6 +6,7 @@ import java.net.URI;
 import org.junit.Before;
 import org.junit.Test;
 import org.processmining.plugins.wpp.CSV2Arff;
+import org.processmining.plugins.wpp.FrecSeqPatterns;
 
 import weka.associations.GeneralizedSequentialPatterns;
 import weka.core.Instances;
@@ -63,6 +64,15 @@ public class WekaTest {
   }
   
   @Test
+  public void GSPtest3() throws Exception {
+
+    //seq.setDebug(true);
+    FrecSeqPatterns fsp = new FrecSeqPatterns(instances);
+    System.out.println(fsp.getNumberOfCycles());
+    System.out.println(fsp.getLast().getCycleAt(0).toString());
+    
+  }
+  //@Test
   public void CSV2ArffTest() throws Exception {
     String files[] = {"C:/Users/Mauro/Desktop/running-example.csv", 
         "C:/Users/Mauro/Desktop/running2.arff"};
