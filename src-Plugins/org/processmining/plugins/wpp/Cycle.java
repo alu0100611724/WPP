@@ -15,6 +15,10 @@ public class Cycle {
     return sequences;
   }
 
+  public Sequence getSequenceAt(int index) {
+    return getSequences().get(index);
+  }
+  
   public void setSequences(ArrayList<Sequence> sequences) {
     this.sequences = sequences;
   }

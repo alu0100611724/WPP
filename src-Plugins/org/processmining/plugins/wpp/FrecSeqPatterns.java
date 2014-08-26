@@ -39,16 +39,20 @@ public class FrecSeqPatterns {
     readFile();
   }
 
+  public void setCycles(ArrayList<Cycle> cycles) {
+    this.cycles = cycles;
+  }
+  
   public ArrayList<Cycle> getCycles() {
     return cycles;
   }
 
-  public void setCycles(ArrayList<Cycle> cycles) {
-    this.cycles = cycles;
-  }
-
   public Cycle getLastCycle() {
     return getCycles().get(getCycles().size() - 1);
+  }
+  
+  public Cycle getCycleAt(int i) {
+    return getCycles().get(i);
   }
   
   public int getNumberOfCycles() {
@@ -119,8 +123,7 @@ public class FrecSeqPatterns {
          } else if (linea.contains("<{")) {
            Sequence s = new Sequence(linea);
            getLastCycle().getSequences().add(s);
-         }
-         if (linea.contains("Number of cycles performed")) {
+         } else if (linea.contains("Number of cycles performed")) {
            String nCycles[] = linea.split(": ");
            setNumberOfCycles(Integer.parseInt(nCycles[1]));
          } else if (linea.contains("Total number of frequent")) {
