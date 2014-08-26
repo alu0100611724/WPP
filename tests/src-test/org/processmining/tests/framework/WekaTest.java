@@ -5,7 +5,7 @@ import java.net.URI;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.processmining.plugins.wpp.FrecSeqPatterns;
+import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
 
 import weka.associations.GeneralizedSequentialPatterns;
 import weka.core.Instances;

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true">  
-  <class id="1" language="java" name="org.processmining.plugins.wpp.ArffImportPlugin" project="ProM" 
-    file="/ProM/src-Plugins/org/processmining/plugins/wpp/ArffImportPlugin.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="org.processmining.plugins.wpp.imports.ArffImportPlugin" project="ProM" 
+    file="/ProM/src-Plugins/org/processmining/plugins/wpp/imports/ArffImportPlugin.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="778" y="151" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +11,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="org.processmining.plugins.wpp.FrecSeqPatterns" project="ProM" 
-    file="/ProM/src-Plugins/org/processmining/plugins/wpp/FrecSeqPatterns.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="org.processmining.plugins.wpp.objects.FrecSeqPatterns" project="ProM" 
+    file="/ProM/src-Plugins/org/processmining/plugins/wpp/objects/FrecSeqPatterns.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="322" y="274" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -19,8 +21,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="org.processmining.plugins.wpp.Sequence" project="ProM" 
-    file="/ProM/src-Plugins/org/processmining/plugins/wpp/Sequence.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="org.processmining.plugins.wpp.objects.Sequence" project="ProM" 
+    file="/ProM/src-Plugins/org/processmining/plugins/wpp/objects/Sequence.java" binary="false" corner="BOTTOM_RIGHT">    
     <position x="704" y="361" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      

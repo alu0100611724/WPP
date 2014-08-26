@@ -1,4 +1,4 @@
-package org.processmining.plugins.wpp;
+package org.processmining.plugins.wpp.objects;
 
 import java.io.BufferedReader;
 import java.io.File;

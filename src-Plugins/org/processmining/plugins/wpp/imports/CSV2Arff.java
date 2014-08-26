@@ -1,4 +1,4 @@
-package org.processmining.plugins.wpp;
+package org.processmining.plugins.wpp.imports;
 
 import java.io.File;
 

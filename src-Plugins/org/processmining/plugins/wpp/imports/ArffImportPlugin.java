@@ -1,4 +1,4 @@
-package org.processmining.plugins.wpp;
+package org.processmining.plugins.wpp.imports;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,7 @@ import org.processmining.contexts.uitopia.annotations.UIImportPlugin;
 import org.processmining.framework.abstractplugins.AbstractImportPlugin;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
 
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;

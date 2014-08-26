@@ -1,6 +1,7 @@
-package org.processmining.plugins.wpp;
+package org.processmining.plugins.wpp.objects;
 
 import java.util.ArrayList;
+
 
 public class Cycle {
   
