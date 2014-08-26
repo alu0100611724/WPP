@@ -25,26 +25,32 @@ import weka.core.Instances;
     email = "mauriziorendon@gmail.com")
 @Icon(icon = "./resources/resourcetype_freq_sec_30x35.png")
 public class FrecSeqPatterns {
-  private ArrayList<Cycles> fsp;
+  
+  private ArrayList<Cycle> cycles;
   private int NumberOfCycles;
   private int NumberOfFreqSeq;
+  private GeneralizedSequentialPatterns gsp;
 
   public FrecSeqPatterns(Instances instances) throws Exception {
-    GeneralizedSequentialPatterns seq = new GeneralizedSequentialPatterns();
-    seq.buildAssociations(instances);
-    fsp = new ArrayList<Cycles>();
-    writeFile(seq);
+    cycles = new ArrayList<Cycle>();
+    gsp = new GeneralizedSequentialPatterns();
+    gsp.buildAssociations(instances);
+    writeFile();
     readFile();
   }
 
-  public ArrayList<Cycles> getFsp() {
-    return fsp;
+  public ArrayList<Cycle> getCycles() {
+    return cycles;
   }
 
-  public void setFsp(ArrayList<Cycles> fsp) {
-    this.fsp = fsp;
+  public void setCycles(ArrayList<Cycle> cycles) {
+    this.cycles = cycles;
   }
 
+  public Cycle getLastCycle() {
+    return getCycles().get(getCycles().size() - 1);
+  }
+  
   public int getNumberOfCycles() {
     return NumberOfCycles;
   }
@@ -61,22 +67,22 @@ public class FrecSeqPatterns {
     NumberOfFreqSeq = numberOfFreqSeq;
   }
   
-  public Cycles getLast() {
-    return fsp.get(NumberOfCycles-1);
+  protected GeneralizedSequentialPatterns getGsp() {
+    return gsp;
   }
-  
-  public Cycles get(int index) {
-    return fsp.get(index);
+
+  protected void setGsp(GeneralizedSequentialPatterns gsp) {
+    this.gsp = gsp;
   }
-  
-  protected void writeFile(GeneralizedSequentialPatterns seq){
+
+  protected void writeFile(){
     FileWriter fichero = null;
     PrintWriter pw = null;
     try
     {
         fichero = new FileWriter(new URI("C:/Users/Mauro/Desktop/p.txt").toString());
         pw = new PrintWriter(fichero);
-        pw.println(seq.toString());
+        pw.println(getGsp().toString());
 
     } catch (Exception e) {
         e.printStackTrace();
@@ -93,26 +99,26 @@ public class FrecSeqPatterns {
   }
   
   protected void readFile() {
+    
     File archivo = null;
     FileReader fr = null;
     BufferedReader br = null;
-
+    Cycle c = null;
+    
     try {
-       // Apertura del fichero y creacion de BufferedReader para poder
-       // hacer una lectura comoda (disponer del metodo readLine()).
        archivo = new File (new URI("C:/Users/Mauro/Desktop/p.txt").toString());
        fr = new FileReader (archivo);
        br = new BufferedReader(fr);
 
-       // Lectura del fichero
        String linea;
        while((linea=br.readLine())!=null) {
-         int contSeq = 0;
+         
          if (linea.contains("-sequences")) {
-           fsp.add(new Cycles());
-           contSeq++;
+           c = new Cycle();
+           getCycles().add(c);
          } else if (linea.contains("<{")) {
-           fsp.get(contSeq).addCycle(linea);
+           Sequence s = new Sequence(linea);
+           getLastCycle().getSequences().add(s);
          }
          if (linea.contains("Number of cycles performed")) {
            String nCycles[] = linea.split(": ");
@@ -138,4 +144,5 @@ public class FrecSeqPatterns {
        }
     }
   }
+
 }

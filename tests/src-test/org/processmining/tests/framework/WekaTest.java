@@ -68,11 +68,12 @@ public class WekaTest {
 
     //seq.setDebug(true);
     FrecSeqPatterns fsp = new FrecSeqPatterns(instances);
-    System.out.println(fsp.getNumberOfCycles());
-    System.out.println(fsp.getLast().getCycleAt(0).toString());
-    
+    System.out.println("Num of cycles: " + fsp.getNumberOfCycles());
+    System.out.println("Num of Seqs: " + fsp.getNumberOfFreqSeq());
+    System.out.println("Seq last cycle: " + fsp.getLastCycle().getSequences().get(0).toString());
   }
-  //@Test
+  
+  @Test
   public void CSV2ArffTest() throws Exception {
     String files[] = {"C:/Users/Mauro/Desktop/running-example.csv", 
         "C:/Users/Mauro/Desktop/running2.arff"};
