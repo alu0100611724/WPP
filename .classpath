@@ -56,5 +56,6 @@
 	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
 	<classpathentry kind="lib" path="lib/XESameResources.jar"/>
 	<classpathentry kind="lib" path="lib/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="lib/PetriNets.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
