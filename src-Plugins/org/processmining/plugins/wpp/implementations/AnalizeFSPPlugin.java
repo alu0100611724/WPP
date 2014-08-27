@@ -3,20 +3,12 @@
  */
 package org.processmining.plugins.wpp.implementations;
 
-import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
-import org.processmining.contexts.uitopia.UIPluginContext;
-import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
-import org.processmining.framework.plugin.annotations.PluginVariant;
-import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
-import org.processmining.framework.util.ui.widgets.ProMTextField;
 import org.processmining.plugins.helloworld.Person;
-import org.processmining.plugins.helloworld.ProcreationConfiguration;
 
 //Esta anotacion indica que esta clase es un plugin
 @Plugin(name = "Analyze Frequent Sequential Patterns",
-        parameterLabels = { "Frequent Sequences", "Petri net", "Analyze Configuration" },
+        parameterLabels = { "Petri net", "Frequent Sequences", "Analyze Configuration" },
         returnLabels = { "Petri net " },
         returnTypes = { Person.class })
 /**
@@ -24,7 +16,7 @@ import org.processmining.plugins.helloworld.ProcreationConfiguration;
  * Simple plug-in allowing two persons to have a child
  */
 public class AnalizeFSPPlugin {
-  //Esta anotacion indica que el plugin debera ser expuesto a la interfaz grafica
+  /*Esta anotacion indica que el plugin debera ser expuesto a la interfaz grafica
   @UITopiaVariant(affiliation = "Universidad de la Laguna",
                   author = "Maurizio Rendon",
                   email = "mauriziorendon@gmail.com",
@@ -32,8 +24,8 @@ public class AnalizeFSPPlugin {
   //Indica que este metodo es una variante del plugin
   @PluginVariant(requiredParameterLabels = { 0, 1, 2 })
   public static Person procreate(final PluginContext context,
-                                 final Petrinet father,
-                                 final Petrinet mother,
+                                 final Petrinet petri,
+                                 final FrecSeqPatterns fsp,
                                  final AnalizeFSPConfiguration config) {
     Person child = new Person();
     child.setAge(0);
@@ -47,18 +39,18 @@ public class AnalizeFSPPlugin {
       uiLabel = UITopiaVariant.USEPLUGIN)
   @PluginVariant(requiredParameterLabels = { 0, 1 })
   public static Person procreate(final UIPluginContext context,
-                                 final Person father,
-                                 final Person mother) {
-    ProcreationConfiguration config = new ProcreationConfiguration("");
+                                 final Petrinet petri,
+                                 final FrecSeqPatterns fsp) {
+    AnalizeFSPConfiguration config = new AnalizeFSPConfiguration();
     populate(context, config);
     return procreate(context, father, mother, config);
   }
   
   public static ProcreationConfiguration populate(final UIPluginContext context,
-          									      final ProcreationConfiguration config) {
-	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure Procreation");
+          									      final AnalizeFSPConfiguration config) {
+	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure AnalizeFSP");
 	  ProMTextField name = panel.addTextField("Name", config.getName());
-	  final InteractionResult interactionResult = context.showConfiguration("Setup Procreation", panel);
+	  final InteractionResult interactionResult = context.showConfiguration("Setup AnalizeFSP", panel);
 	  if (interactionResult == InteractionResult.FINISHED ||
 			  interactionResult == InteractionResult.CONTINUE ||
 			  interactionResult == InteractionResult.NEXT) {
@@ -67,5 +59,5 @@ public class AnalizeFSPPlugin {
 	  }
 	  //Este metodo populate retorna null si l configuracion fue cancelada
 	  return null;
-  }
+  }*/
 }
