@@ -5,7 +5,7 @@ import java.net.URI;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
+import org.processmining.plugins.wpp.objects.Gsp;
 
 import weka.associations.GeneralizedSequentialPatterns;
 import weka.core.Instances;
@@ -66,7 +66,7 @@ public class WekaTest {
   public void GSPtest3() throws Exception {
 
     //seq.setDebug(true);
-    FrecSeqPatterns fsp = new FrecSeqPatterns(instances);
+    Gsp fsp = new Gsp(instances);
     System.out.println("Num of cycles: " + fsp.getNumberOfCycles());
     System.out.println("Num of Seqs: " + fsp.getNumberOfFreqSeq());
     System.out.println("Seq last cycle: " + fsp.getLastCycle().getSequenceAt(0).toString());
