@@ -10,7 +10,7 @@ import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
-import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
+import org.processmining.plugins.wpp.objects.Gsp;
 
 @Plugin(name = "Export Frequent Secuences",
     parameterLabels = { "Frequent Secuences", "File" },
@@ -24,7 +24,7 @@ public class ExportFrequentSequences {
       email = "mauriziorendon@gmail.com")
   @PluginVariant(requiredParameterLabels = { 0, 1 })
   public void export(PluginContext context,
-          FrecSeqPatterns fsp,
+          Gsp fsp,
           File file) throws IOException {
       FileWriter writer = new FileWriter(file);
       PrintWriter pwriter = new PrintWriter(writer);

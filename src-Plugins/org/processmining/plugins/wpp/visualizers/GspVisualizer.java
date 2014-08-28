@@ -14,7 +14,7 @@ import org.processmining.contexts.uitopia.annotations.Visualizer;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
-import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
+import org.processmining.plugins.wpp.objects.Gsp;
  
 @Plugin(name = "Show Frequent Sequential Patterns",
         parameterLabels = { "FrecSeqPatterns" },
@@ -22,7 +22,7 @@ import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
         returnTypes = { JComponent.class },
         userAccessible = false)
 @Visualizer
-public class FrecSeqPatternsVisualizer {
+public class GspVisualizer {
 
   /*
    * Here, we just return a passive JComponent object, but it is perfectly ok for a 
@@ -37,7 +37,7 @@ public class FrecSeqPatternsVisualizer {
    */
   @PluginVariant(requiredParameterLabels = { 0 })
   public static JComponent visualize(final PluginContext context,
-                                     final FrecSeqPatterns fsp) {
+                                     final Gsp fsp) {
     JPanel pBotones = new JPanel();
     JPanel pPetri = new JPanel();
     JPanel pMix = new JPanel();

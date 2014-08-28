@@ -19,24 +19,85 @@ import weka.core.Instances;
  * @author Mauro
  * This class have the frequent sequential patterns
  */
-@AuthoredType(typeName = "Frequent Sequential Patterns",
+@AuthoredType(typeName = "General Sequential Patterns",
     affiliation = "Universidad de la Laguna",
     author = "Maurizio Rendon",
     email = "mauriziorendon@gmail.com")
-@Icon(icon = "./resources/resourcetype_freq_sec_30x35.png")
-public class FrecSeqPatterns {
+@Icon(icon = "./resources/resourcetype_gsp_30x35.png")
+public class Gsp {
   
   private ArrayList<Cycle> cycles;
-  private int NumberOfCycles;
-  private int NumberOfFreqSeq;
+  private int numberOfCycles;
+  private int numberOfFreqSeq;
+  private boolean debug;
+  private double support;
+  private int idData;
+  private String filterAttribute;
   private GeneralizedSequentialPatterns gsp;
 
-  public FrecSeqPatterns(Instances instances) throws Exception {
-    cycles = new ArrayList<Cycle>();
-    gsp = new GeneralizedSequentialPatterns();
-    gsp.buildAssociations(instances);
+  public Gsp(Instances instances, boolean d, double s, int i, String f) {
+    setDebug(d);
+    setSupport(s);
+    setIdData(i);
+    setFilterAttribute(f);
+    setCycles(new ArrayList<Cycle>());
+    setGsp(new GeneralizedSequentialPatterns());
+    runAlgorith(instances);
+  }
+
+  public Gsp(Instances instances) {
+    setDebug(false);
+    setSupport(0.9);
+    setIdData(0);
+    setFilterAttribute("-1");
+    setCycles(new ArrayList<Cycle>());
+    setGsp(new GeneralizedSequentialPatterns());
+    runAlgorith(instances);
+  }
+  
+  protected void runAlgorith(Instances instances) {
+    getGsp().setDebug(isDebug());
+    getGsp().setMinSupport(getSupport());
+    getGsp().setDataSeqID(getIdData());
+    getGsp().setFilterAttributes(getFilterAttribute());
+    try {
+      getGsp().buildAssociations(instances);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     writeFile();
     readFile();
+  }
+  protected boolean isDebug() {
+    return debug;
+  }
+
+  protected void setDebug(boolean debug) {
+    this.debug = debug;
+  }
+
+  protected double getSupport() {
+    return support;
+  }
+
+  protected void setSupport(double support) {
+    this.support = support;
+  }
+
+  protected int getIdData() {
+    return idData;
+  }
+
+  protected void setIdData(int idData) {
+    this.idData = idData;
+  }
+
+  protected String getFilterAttribute() {
+    return filterAttribute;
+  }
+
+  protected void setFilterAttribute(String filterAttribute) {
+    this.filterAttribute = filterAttribute;
   }
 
   public void setCycles(ArrayList<Cycle> cycles) {
@@ -56,19 +117,19 @@ public class FrecSeqPatterns {
   }
   
   public int getNumberOfCycles() {
-    return NumberOfCycles;
+    return numberOfCycles;
   }
 
   public void setNumberOfCycles(int numberOfCycles) {
-    NumberOfCycles = numberOfCycles;
+    this.numberOfCycles = numberOfCycles;
   }
 
   public int getNumberOfFreqSeq() {
-    return NumberOfFreqSeq;
+    return numberOfFreqSeq;
   }
 
   public void setNumberOfFreqSeq(int numberOfFreqSeq) {
-    NumberOfFreqSeq = numberOfFreqSeq;
+    this.numberOfFreqSeq = numberOfFreqSeq;
   }
   
   protected GeneralizedSequentialPatterns getGsp() {
