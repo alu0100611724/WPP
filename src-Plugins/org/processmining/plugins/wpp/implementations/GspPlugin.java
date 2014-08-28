@@ -81,11 +81,11 @@ public class GspPlugin {
     
 	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure GSP Algorith");
 	  
-	  ProMTextField minSupport = panel.addTextField("Min.Support: ", 
+	  ProMTextField minSupport = panel.addTextField("Min. Support: ", 
 	      Double.toString(config.getSupport()));
-	  ProMTextField idData = panel.addTextField("Attribute number of data sequence ID: ",
+	  ProMTextField idData = panel.addTextField("Sequence ID number: ",
 	  		Integer.toString(config.getIdData()));
-	  ProMTextField filter = panel.addTextField("Attribute numbers used for result filtering: ", 
+	  ProMTextField filter = panel.addTextField("Filtering Attributes: ", 
         config.getFilterAttribute());
 	  
 	  final InteractionResult interactionResult = context.showConfiguration("Setups", panel);

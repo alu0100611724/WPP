@@ -13,7 +13,6 @@ import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
  
 /**
- * Importar un obeto en prom significa cargar o leerlo.
  * @author Mauro
  *
  */
