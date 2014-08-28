@@ -6,6 +6,7 @@ import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
+import org.processmining.framework.util.ui.widgets.ProMTextArea;
 import org.processmining.framework.util.ui.widgets.ProMTextField;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.plugins.wpp.objects.Gsp;
@@ -59,7 +60,7 @@ public class GspPlugin {
                                  final Petrinet petri,
                                  final Instances arff) {
     GspConfiguration config = new GspConfiguration();
-    config = populate(context, config);
+    config = populate(context, arff, config);
     return build(context, petri, arff, config);
   }
   
@@ -73,11 +74,15 @@ public class GspPlugin {
    * If a plug-in has more settings than sensible fit on a single page, the Widgets packet 
    * also provides a ProMWizard which should be used. (This is not the case)
    */
-  public static GspConfiguration populate(final UIPluginContext context,
+  public static GspConfiguration populate(final UIPluginContext context, Instances arff,
           									      final GspConfiguration config) {
     
 	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure GSP Algorith");
 	  
+	  ProMTextArea data = new ProMTextArea(false);
+    data.setText(arff.toString());
+    panel.add(data);
+    
 	  ProMTextField minSupport = panel.addTextField("Min. Support: ", 
 	      Double.toString(config.getSupport()));
 	  ProMTextField idData = panel.addTextField("Sequence ID number: ",
