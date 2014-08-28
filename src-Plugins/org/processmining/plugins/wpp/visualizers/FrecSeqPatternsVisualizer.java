@@ -23,6 +23,18 @@ import org.processmining.plugins.wpp.objects.FrecSeqPatterns;
         userAccessible = false)
 @Visualizer
 public class FrecSeqPatternsVisualizer {
+
+  /*
+   * Here, we just return a passive JComponent object, but it is perfectly ok for a 
+   * visualizer to include active elements including event handlers. Visualizers can
+   * present different views of the same object (e.g., zooming in or making various 
+   * projections) and are allowed to contain a reference to the original object. 
+   * Visualizers should not, however, ever change the provided object.Visualizers are 
+   * allowed to create new objects based on the input.
+   * 
+   * Again, we have made the visualizer static as a single visualizer may display multiple 
+   * objects,and may even be instantiated multiple times for the same object. 
+   */
   @PluginVariant(requiredParameterLabels = { 0 })
   public static JComponent visualize(final PluginContext context,
                                      final FrecSeqPatterns fsp) {
@@ -38,6 +50,8 @@ public class FrecSeqPatternsVisualizer {
     pMix.setLayout(new BorderLayout());
     pMix.add(pPetri, BorderLayout.CENTER);
     pMix.add(pBotones, BorderLayout.WEST);
+    
+ // Always return a single parameter of type JComponent
     return pMix;
   }
 }
