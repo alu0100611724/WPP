@@ -1,6 +1,3 @@
-/**
- * Tutorial from https://westergaard.eu/category/tutorials/prom-tutorial/
- */
 package org.processmining.plugins.wpp.implementations;
 
 import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;

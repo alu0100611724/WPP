@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.processmining.plugins.wpp.visualizers;
 
 import java.awt.BorderLayout;

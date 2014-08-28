@@ -1,7 +1,7 @@
 package org.processmining.tests.framework;
 
-
 import java.net.URI;
+import java.util.Enumeration;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +25,22 @@ public class WekaTest {
     seq = new GeneralizedSequentialPatterns();
   }
 
+  @SuppressWarnings("unchecked")
+  @Test
+  public void instancesTest() {
+    Enumeration e = instances.enumerateAttributes();
+    int i = 0;
+    try {
+      while (i != -1) {
+        System.out.println(e.nextElement().toString());
+        i++;
+        }
+    } catch (Exception exec) {
+      System.out.println("---------------");
+      System.out.println(i);
+    }
+    
+  }
   @Test
   public void GSPtest() throws Exception {
   
