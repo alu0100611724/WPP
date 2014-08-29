@@ -1,8 +1,8 @@
 GeneralizedSequentialPatterns
 =============================
 
-Number of cycles performed: 4
-Total number of frequent sequences: 26
+Number of cycles performed: 5
+Total number of frequent sequences: 79
 
 Frequent Sequences Details (filtered):
 
@@ -11,37 +11,37 @@ Frequent Sequences Details (filtered):
 [1] <{register request}> (6)
 [2] <{check ticket}> (6)
 [3] <{decide}> (6)
-[4] <{Mike}> (6)
-[5] <{Sara}> (6)
-[6] <{Ellen}> (5)
+[4] <{examine casually}> (4)
 
 - 2-sequences
 
 [1] <{register request}{check ticket}> (6)
 [2] <{register request}{decide}> (6)
-[3] <{register request}{Mike}> (6)
-[4] <{register request}{Sara}> (6)
-[5] <{register request}{Ellen}> (5)
-[6] <{check ticket}{decide}> (6)
-[7] <{check ticket}{Sara}> (6)
-[8] <{Mike}{decide}> (6)
-[9] <{Mike}{Sara}> (6)
-[10] <{Mike}{Ellen}> (5)
-[11] <{decide,Sara}> (6)
+[3] <{register request}{examine casually}> (4)
+[4] <{check ticket}{decide}> (6)
+[5] <{examine casually}{decide}> (4)
+[6] <{check ticket,Mike}> (4)
+[7] <{decide,Sara}> (6)
 
 - 3-sequences
 
 [1] <{register request}{check ticket}{decide}> (6)
-[2] <{register request}{check ticket}{Sara}> (6)
+[2] <{register request}{check ticket,Mike}> (4)
 [3] <{register request}{decide,Sara}> (6)
-[4] <{register request}{Mike}{decide}> (6)
-[5] <{register request}{Mike}{Sara}> (6)
-[6] <{check ticket}{decide,Sara}> (6)
-[7] <{Mike}{decide,Sara}> (6)
+[4] <{register request}{examine casually}{decide}> (4)
+[5] <{check ticket}{decide,Sara}> (6)
+[6] <{examine casually}{decide,Sara}> (4)
+[7] <{check ticket,Mike}{decide}> (4)
 
 - 4-sequences
 
 [1] <{register request}{check ticket}{decide,Sara}> (6)
-[2] <{register request}{Mike}{decide,Sara}> (6)
+[2] <{register request}{check ticket,Mike}{decide}> (4)
+[3] <{register request}{examine casually}{decide,Sara}> (4)
+[4] <{check ticket,Mike}{decide,Sara}> (4)
+
+- 5-sequences
+
+[1] <{register request}{check ticket,Mike}{decide,Sara}> (4)
 
 

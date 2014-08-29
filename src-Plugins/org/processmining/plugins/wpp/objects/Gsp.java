@@ -68,6 +68,7 @@ public class Gsp {
     writeFile();
     readFile();
   }
+
   protected boolean isDebug() {
     return debug;
   }
@@ -110,6 +111,10 @@ public class Gsp {
 
   public Cycle getLastCycle() {
     return getCycles().get(getCycles().size() - 1);
+  }
+  
+  public Cycle getSecondLastCycle() {
+    return getCycles().get(getCycles().size() - 2);
   }
   
   public Cycle getCycleAt(int i) {

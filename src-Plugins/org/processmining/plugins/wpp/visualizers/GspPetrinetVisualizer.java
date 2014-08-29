@@ -41,9 +41,9 @@ public class GspPetrinetVisualizer {
     JComponent pPetri = pnv.visualize(context, fsp.getPetri());
     JPanel pMix = new JPanel();
     
-    pBotones.setLayout(new GridLayout(fsp.getGsp().getLastCycle().size(), 1));
-    for (int i = 0; i<fsp.getGsp().getLastCycle().size(); i++) {
-      JButton bSequence = new JButton(fsp.getGsp().getLastCycle().getSequenceAt(i).toString());
+    pBotones.setLayout(new GridLayout(fsp.getGsp().getSecondLastCycle().size(), 1));
+    for (int i = 0; i<fsp.getGsp().getSecondLastCycle().size(); i++) {
+      JButton bSequence = new JButton(fsp.getGsp().getSecondLastCycle().getSequenceAt(i).toString());
       bSequence.setBackground(java.awt.Color.darkGray);
       bSequence.setForeground(java.awt.Color.white);
       pBotones.add(bSequence);

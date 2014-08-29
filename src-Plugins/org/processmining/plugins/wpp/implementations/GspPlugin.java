@@ -5,6 +5,7 @@ import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
+import org.processmining.framework.util.ui.widgets.ProMComboBox;
 import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
 import org.processmining.framework.util.ui.widgets.ProMTextArea;
 import org.processmining.framework.util.ui.widgets.ProMTextField;
@@ -59,7 +60,8 @@ public class GspPlugin {
   public static GspPetrinet build(final UIPluginContext context,
                                  final Petrinet petri,
                                  final Instances arff) {
-    GspConfiguration config = new GspConfiguration();
+    
+    GspConfiguration config = new GspConfiguration(arff);
     config = populate(context, arff, config);
     return build(context, petri, arff, config);
   }
@@ -74,20 +76,24 @@ public class GspPlugin {
    * If a plug-in has more settings than sensible fit on a single page, the Widgets packet 
    * also provides a ProMWizard which should be used. (This is not the case)
    */
-  public static GspConfiguration populate(final UIPluginContext context, Instances arff,
+  public static GspConfiguration populate(final UIPluginContext context, 
+                                  final Instances arff,
           									      final GspConfiguration config) {
     
 	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure GSP Algorith");
 	  
+    ProMComboBox id = new ProMComboBox(config.getAttributes());
+    panel.add("ID: ", id);
+    
 	  ProMTextArea data = new ProMTextArea(false);
     data.setText(arff.toString());
     panel.add(data);
     
-	  ProMTextField minSupport = panel.addTextField("Min. Support: ", 
+	  ProMTextField minSupport = panel.addTextField("Min. Support (0.5-0.9): ", 
 	      Double.toString(config.getSupport()));
 	  ProMTextField idData = panel.addTextField("Sequence ID number: ",
 	  		Integer.toString(config.getIdData()));
-	  ProMTextField filter = panel.addTextField("Filtering Attributes: ", 
+	  ProMTextField filter = panel.addTextField("Filtering Attribute: ", 
         config.getFilterAttribute());
 	  
 	  final InteractionResult interactionResult = context.showConfiguration("Setups", panel);
