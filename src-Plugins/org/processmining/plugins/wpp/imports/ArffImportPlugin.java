@@ -1,5 +1,6 @@
 package org.processmining.plugins.wpp.imports;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -33,10 +34,11 @@ public class ArffImportPlugin extends AbstractImportPlugin {
                                     final long fileSizeInBytes) throws IOException {
     try {
       context.getFutureResult(0).setLabel("Arff Instances from " + filename);
-      URI ArffUri = new URI("C:/Users/Mauro/Desktop/" + filename);
-      DataSource source = new DataSource(ArffUri.toString());
+      File appDir = new File(System.getProperty("user.dir"));
+      URI uri = new URI(appDir.toURI() + "resources/" + filename);
+      //System.out.println(uri.getPath().toString());
+      DataSource source = new DataSource(uri.getPath().toString());
       Instances instances = source.getDataSet();
-      //FrecSeqPatterns result = new FrecSeqPatterns(instances);
       return instances;
     } catch (Exception e) {
       System.out.println(e.getMessage());

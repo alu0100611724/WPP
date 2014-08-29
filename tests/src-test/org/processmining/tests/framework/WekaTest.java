@@ -1,5 +1,6 @@
 package org.processmining.tests.framework;
 
+import java.io.File;
 import java.net.URI;
 import java.util.Enumeration;
 
@@ -19,8 +20,9 @@ public class WekaTest {
   
   @Before
   public void setUp() throws Exception {
-    source = new DataSource(
-        new URI("C:/Users/Mauro/Desktop/running.arff").toString());
+    File appDir = new File(System.getProperty("user.dir"));
+    URI uri = new URI(appDir.toURI() + "resources/running.arff");
+    source = new DataSource(uri.getPath().toString());
     instances = source.getDataSet();
     seq = new GeneralizedSequentialPatterns();
   }
