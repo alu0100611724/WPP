@@ -15,6 +15,11 @@ import org.processmining.plugins.wpp.objects.GspPetrinet;
 
 import weka.core.Instances;
 
+import com.fluxicon.slickerbox.components.NiceIntegerSlider;
+import com.fluxicon.slickerbox.components.NiceSlider;
+import com.fluxicon.slickerbox.components.SlickerTabbedPane;
+import com.fluxicon.slickerbox.factory.SlickerFactory;
+
 //Esta anotacion indica que esta clase es un plugin
 @Plugin(name = "Discover General Sequential Patterns",
         parameterLabels = { "Petri net", "Arff Instances", "GPS Configuration" },
@@ -82,12 +87,23 @@ public class GspPlugin {
     
 	  ProMPropertiesPanel panel = new ProMPropertiesPanel("Configure GSP Algorith");
 	  
+    //JButton b = SlickerFactory.instance().createButton("prueba");
+    //panel.add(b);
+	  
     ProMComboBox id = new ProMComboBox(config.getAttributes());
-    panel.add("ID: ", id);
+    id.setToolTipText("The attribute representing the data sequence ID.");
+    panel.addProperty("Sequence ID", id);
+
+    NiceIntegerSlider slider = SlickerFactory.instance().createNiceIntegerSlider(
+        "Min. Support (%)", 10, 100, 90, NiceSlider.Orientation.HORIZONTAL);
+    slider.setToolTipText("The miminum support threshold.");
+    panel.add(slider);
     
 	  ProMTextArea data = new ProMTextArea(false);
     data.setText(arff.toString());
-    panel.add(data);
+    SlickerTabbedPane tabP = SlickerFactory.instance().createTabbedPane("Dataset");
+    tabP.add(data);
+    panel.add(tabP);
     
 	  ProMTextField minSupport = panel.addTextField("Min. Support (0.5-0.9): ", 
 	      Double.toString(config.getSupport()));
