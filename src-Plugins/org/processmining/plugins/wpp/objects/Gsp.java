@@ -68,6 +68,7 @@ public class Gsp {
     writeFile();
     readFile();
   }
+
   protected boolean isDebug() {
     return debug;
   }
@@ -112,6 +113,10 @@ public class Gsp {
     return getCycles().get(getCycles().size() - 1);
   }
   
+  public Cycle getSecondLastCycle() {
+    return getCycles().get(getCycles().size() - 2);
+  }
+  
   public Cycle getCycleAt(int i) {
     return getCycles().get(i);
   }
@@ -145,9 +150,11 @@ public class Gsp {
     PrintWriter pw = null;
     try
     {
-        fichero = new FileWriter(new URI("C:/Users/Mauro/Desktop/p.txt").toString());
-        pw = new PrintWriter(fichero);
-        pw.println(getGsp().toString());
+      File appDir = new File(System.getProperty("user.dir"));
+      URI uri = new URI(appDir.toURI() + "resources/gsp.txt");  
+      fichero = new FileWriter(uri.getPath().toString());
+      pw = new PrintWriter(fichero);
+      pw.println(getGsp().toString());
 
     } catch (Exception e) {
         e.printStackTrace();
@@ -171,12 +178,14 @@ public class Gsp {
     Cycle c = null;
     
     try {
-       archivo = new File (new URI("C:/Users/Mauro/Desktop/p.txt").toString());
-       fr = new FileReader (archivo);
-       br = new BufferedReader(fr);
+      File appDir = new File(System.getProperty("user.dir"));
+      URI uri = new URI(appDir.toURI() + "resources/gsp.txt"); 
+      archivo = new File (uri.getPath().toString());
+      fr = new FileReader (archivo);
+      br = new BufferedReader(fr);
 
-       String linea;
-       while((linea=br.readLine())!=null) {
+      String linea;
+      while((linea=br.readLine())!=null) {
          
          if (linea.contains("-sequences")) {
            c = new Cycle();

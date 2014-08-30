@@ -1,0 +1,28 @@
+GeneralizedSequentialPatterns
+=============================
+
+Number of cycles performed: 4
+Total number of frequent sequences: 26
+
+Frequent Sequences Details (filtered):
+
+- 1-sequences
+
+[1] <{Mike}> (6)
+[2] <{Sara}> (6)
+[3] <{Ellen}> (5)
+
+- 2-sequences
+
+[1] <{Mike}{Sara}> (6)
+[2] <{Mike}{Ellen}> (5)
+[3] <{decide,Sara}> (6)
+
+- 3-sequences
+
+[1] <{Mike}{decide,Sara}> (6)
+
+- 4-sequences
+
+
+
