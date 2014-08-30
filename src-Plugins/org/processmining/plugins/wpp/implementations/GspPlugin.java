@@ -1,5 +1,7 @@
 package org.processmining.plugins.wpp.implementations;
 
+import java.util.ArrayList;
+
 import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
@@ -8,7 +10,6 @@ import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.util.ui.widgets.ProMComboBox;
 import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
 import org.processmining.framework.util.ui.widgets.ProMTextArea;
-import org.processmining.framework.util.ui.widgets.ProMTextField;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.plugins.wpp.objects.Gsp;
 import org.processmining.plugins.wpp.objects.GspPetrinet;
@@ -17,7 +18,6 @@ import weka.core.Instances;
 
 import com.fluxicon.slickerbox.components.NiceIntegerSlider;
 import com.fluxicon.slickerbox.components.NiceSlider;
-import com.fluxicon.slickerbox.components.SlickerTabbedPane;
 import com.fluxicon.slickerbox.factory.SlickerFactory;
 
 //Esta anotacion indica que esta clase es un plugin
@@ -90,36 +90,48 @@ public class GspPlugin {
     //JButton b = SlickerFactory.instance().createButton("prueba");
     //panel.add(b);
 	  
-    ProMComboBox id = new ProMComboBox(config.getAttributes());
-    id.setToolTipText("The attribute representing the data sequence ID.");
-    panel.addProperty("Sequence ID", id);
-
-    NiceIntegerSlider slider = SlickerFactory.instance().createNiceIntegerSlider(
+    ProMComboBox idSeq = new ProMComboBox(config.getAttributes());
+    idSeq.setToolTipText("The attribute representing the data sequence ID");
+    panel.addProperty("Sequence ID", idSeq);
+    
+    ArrayList<String> attrExtra = config.getAttributes();
+    /*
+    attrExtra.remove(0);
+    attrExtra.add(0, "All");
+    */
+    ProMComboBox filterAttr = new ProMComboBox(attrExtra);
+    filterAttr.setToolTipText("The attribute used for result filtering");
+    panel.addProperty("Filtering Attribute", filterAttr);
+    /*
+    JLabel space = SlickerFactory.instance().createLabel(" ");
+    panel.add(space);
+    */
+    NiceIntegerSlider support = SlickerFactory.instance().createNiceIntegerSlider(
         "Min. Support (%)", 10, 100, 90, NiceSlider.Orientation.HORIZONTAL);
-    slider.setToolTipText("The miminum support threshold.");
-    panel.add(slider);
+    support.setToolTipText("The miminum support threshold");
+    panel.add(support);
     
 	  ProMTextArea data = new ProMTextArea(false);
     data.setText(arff.toString());
-    SlickerTabbedPane tabP = SlickerFactory.instance().createTabbedPane("Dataset");
-    tabP.add(data);
-    panel.add(tabP);
-    
+    //SlickerTabbedPane tabP = SlickerFactory.instance().createTabbedPane("Dataset");
+    //tabP.add(data);
+    panel.addProperty("Dataset", data);
+    /*
 	  ProMTextField minSupport = panel.addTextField("Min. Support (0.5-0.9): ", 
 	      Double.toString(config.getSupport()));
 	  ProMTextField idData = panel.addTextField("Sequence ID number: ",
 	  		Integer.toString(config.getIdData()));
 	  ProMTextField filter = panel.addTextField("Filtering Attribute: ", 
         config.getFilterAttribute());
-	  
+	  */
 	  final InteractionResult interactionResult = context.showConfiguration("Setups", panel);
 	  
 	  if (interactionResult == InteractionResult.FINISHED ||
 			  interactionResult == InteractionResult.CONTINUE ||
 			  interactionResult == InteractionResult.NEXT) {
-		  config.setSupport(Double.parseDouble(minSupport.getText()));
-		  config.setIdData(Integer.parseInt(idData.getText()));
-		  config.setFilterAttribute(filter.getText());
+		  config.setSupport((support.getValue())/100.00);
+		  config.setIdData(idSeq.getSelectedIndex());
+		  config.setFilterAttribute(Integer.toString(filterAttr.getSelectedIndex()-1));
 		  return config;
 	  }
 	  //Este metodo populate retorna null si l configuracion fue cancelada
