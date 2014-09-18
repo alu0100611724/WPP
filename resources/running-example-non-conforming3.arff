@@ -1,0 +1,78 @@
+@relation 'running-example-non-conforming-weka.filters.unsupervised.attribute.Remove-R2,5-6'
+
+@attribute CaseID {1,2,3,4,5,6,7,8,9,10}
+@attribute dd-MM-yyyy:HH.mm {30-12-2010:11.02,31-12-2010:10.06,05-01-2011:15.12,06-01-2011:11.18,07-01-2011:14.24,30-12-2010:11.32,30-12-2010:12.12,30-12-2010:14.16,05-01-2011:11.22,08-01-2011:12.05,30-12-2010:14.32,30-12-2010:15.06,30-12-2010:16.34,06-01-2011:09.18,06-01-2011:12.18,06-01-2011:13.06,08-01-2011:11.43,09-01-2011:09.55,15-01-2011:10.45,06-01-2011:15.02,07-01-2011:12.06,08-01-2011:14.43,09-01-2011:12.02,12-01-2011:15.44,06-01-2011:09.02,07-01-2011:10.16,08-01-2011:11.22,10-01-2011:13.28,11-01-2011:16.18,14-01-2011:14.33,16-01-2011:15.50,19-01-2011:11.18,20-01-2011:12.48,21-01-2011:09.06,21-01-2011:11.34,23-01-2011:13.12,24-01-2011:14.56,06-01-2011:16.06,07-01-2011:16.22,07-01-2011:16.52,16-01-2011:11.47,15-01-2011:12.00,16-01-2011:12.00,17-01-2011:12.00,18-01-2011:12.00,19-01-2011:12.00,20-01-2011:12.00,21-01-2011:12.00,22-01-2011:12.00}
+@attribute Activity {'register request','examine thoroughly','check ticket',decide,'reject request','examine casually','pay compensation','reinitiate request'}
+
+@data
+1,30-12-2010:11.02,'register request'
+1,31-12-2010:10.06,'examine thoroughly'
+1,05-01-2011:15.12,'check ticket'
+1,06-01-2011:11.18,decide
+1,07-01-2011:14.24,'reject request'
+2,30-12-2010:11.32,'register request'
+2,30-12-2010:12.12,'check ticket'
+2,30-12-2010:14.16,'examine casually'
+2,05-01-2011:11.22,decide
+2,08-01-2011:12.05,'pay compensation'
+3,30-12-2010:14.32,'register request'
+3,30-12-2010:15.06,'examine casually'
+3,30-12-2010:16.34,'check ticket'
+3,06-01-2011:09.18,decide
+3,06-01-2011:12.18,'reinitiate request'
+3,06-01-2011:13.06,'examine thoroughly'
+3,08-01-2011:11.43,'check ticket'
+3,09-01-2011:09.55,decide
+3,15-01-2011:10.45,'pay compensation'
+4,06-01-2011:15.02,'register request'
+4,07-01-2011:12.06,'check ticket'
+4,08-01-2011:14.43,'examine thoroughly'
+4,09-01-2011:12.02,decide
+4,12-01-2011:15.44,'reject request'
+5,06-01-2011:09.02,'register request'
+5,07-01-2011:10.16,'examine casually'
+5,08-01-2011:11.22,'check ticket'
+5,10-01-2011:13.28,decide
+5,11-01-2011:16.18,'reinitiate request'
+5,14-01-2011:14.33,'check ticket'
+5,16-01-2011:15.50,'examine casually'
+5,19-01-2011:11.18,decide
+5,20-01-2011:12.48,'reinitiate request'
+5,21-01-2011:09.06,'examine casually'
+5,21-01-2011:11.34,'check ticket'
+5,23-01-2011:13.12,decide
+5,24-01-2011:14.56,'reject request'
+6,06-01-2011:15.02,'register request'
+6,06-01-2011:16.06,'examine casually'
+6,07-01-2011:16.22,'check ticket'
+6,07-01-2011:16.52,decide
+6,16-01-2011:11.47,'pay compensation'
+7,15-01-2011:12.00,'register request'
+7,16-01-2011:12.00,'examine thoroughly'
+7,17-01-2011:12.00,decide
+7,18-01-2011:12.00,'pay compensation'
+8,19-01-2011:12.00,'register request'
+8,20-01-2011:12.00,'examine thoroughly'
+8,21-01-2011:12.00,'check ticket'
+8,22-01-2011:12.00,decide
+9,06-01-2011:09.02,'register request'
+9,07-01-2011:10.16,'check ticket'
+9,08-01-2011:11.22,'examine casually'
+9,10-01-2011:13.28,decide
+9,11-01-2011:16.18,'reinitiate request'
+9,14-01-2011:14.33,'check ticket'
+9,16-01-2011:15.50,'examine casually'
+9,19-01-2011:11.18,decide
+9,20-01-2011:12.48,'reinitiate request'
+9,21-01-2011:09.06,'examine thoroughly'
+9,21-01-2011:11.34,'check ticket'
+9,23-01-2011:13.12,decide
+9,24-01-2011:14.56,'reject request'
+10,30-12-2010:14.32,'register request'
+10,30-12-2010:15.06,'examine casually'
+10,30-12-2010:16.34,'check ticket'
+10,06-01-2011:09.18,decide
+10,06-01-2011:12.18,'reinitiate request'
+10,06-01-2011:13.06,'examine thoroughly'
+10,08-01-2011:11.43,'check ticket'
+10,15-01-2011:10.45,'pay compensation'

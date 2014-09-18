@@ -64,7 +64,7 @@ public class WekaTest {
   public void GSPtest2() throws Exception {
 
     //seq.setDebug(true);
-    String op[] = {"-D", "-S", "0.6", "-I", "0", "-F", "1"};
+    String op[] = {"-D", "-S", "0.5", "-I", "0", "-F", "1"};
     seq.setOptions(op);
     seq.buildAssociations(instances);
     System.out.println("2\n************************************");
@@ -84,10 +84,12 @@ public class WekaTest {
   public void GSPtest3() throws Exception {
 
     //seq.setDebug(true);
-    Gsp fsp = new Gsp(instances, false, 0.6, 0, "1");
+    Gsp fsp = new Gsp(instances, false, 0.9, 0, "1");
+    System.out.println("3\n************************************");
     System.out.println("Num of cycles: " + fsp.getNumberOfCycles());
     System.out.println("Num of Seqs: " + fsp.getNumberOfFreqSeq());
     System.out.println("Seq last cycle: " + fsp.getSecondLastCycle().getSequenceAt(0).toString());
+    System.out.println("************************************\n");
   }
   
   /*@Test
